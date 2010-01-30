@@ -1,0 +1,41 @@
+CLASS USER	; пользовательская настройка
+			; MACHINE	; общекомпьютерная настройка
+			; USER.MACHINE	; компьютерная настраойка
+	CATEGORY "Категория политики"
+		POLICY "Политика"
+			SUPPORTED	!!NameOS
+			EXPLAIN		"Шаблон для политики"
+			KEYNAME		"Software\Policies"
+			VALUENAME	"Sample"
+			VALUEON		NUMERIC	1
+			VALUEOFF	NUMERIC	0
+		END POLICY
+		POLICY "Политика со списком ключей"
+			SUPPORTED	!!NameOS
+			EXPLAIN		"Шаблон для политики со списком ключей"
+			KEYNAME		"Software\Policies"
+			ACTIONLISTON
+				VALUENAME	"Sample1"	VALUE	1
+				VALUENAME	"Sample1"	VALUE	1
+			END ACTIONLISTON
+			ACTIONLISTOFF
+				VALUENAME	"Sample1"	VALUE	0
+				VALUENAME	"Sample1"	VALUE	0
+			END ACTIONLISTOFF
+		END POLICY
+		POLICY "Политика с диалоговыми элементами"
+			SUPPORTED	!!NameOS
+			EXPLAIN		"Шаблон для политики с диалоговыми элементами"
+			KEYNAME		"Software\Policies"
+			PART "Независимая кнопка" CHECKBOX
+				;	COMBOBOX DROPDOWNLIST EDITTEXT LISTBOX NUMERIC TEXT
+				DEFCHECKED
+				VALUENAME	"Sample"
+				VALUEON		NUMERIC	11
+				VALUEOFF	NUMERIC	10
+			END PART
+		END POLICY
+	END CATEGORY
+
+[strings]
+NameOS="Microsoft Windows Vista"

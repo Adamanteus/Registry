@@ -1,0 +1,12 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\Extensions\{10954C80-4F0F-11d3-B17C-00C0DFE39736}]
+"ButtonText"="Skype"
+"MenuText"="Skype"
+"MenuStatusBar"="Run Skype"
+"ClSid"="{1FBA04EE-3024-11d2-8F1F-0000F87ABD16}"
+"Default Visible'"="Yes"
+"Exec"="%ProgramFiles%\\Skype\\Phone\\Skype.exe"
+"HotIcon"=",4"
+"Icon"=",4"
+

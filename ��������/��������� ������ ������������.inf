@@ -1,0 +1,87 @@
+[Version]
+Signature=$CHICAGO$
+
+[DefaultInstall]
+AddReg=Reg.Settings
+AddReg=Reg.Uninstall
+CopyFiles=Inf.Copy
+
+[DefaultUninstall]
+DelReg=Reg.Settings
+DelReg=Reg.Uninstall
+DelFiles=Inf.Copy
+
+[Reg.Settings]
+;HKCU,%HK_INTERNET%\SearchUrl\,, 0, "%%"
+HKCU,%HK_INTERNET%\SearchUrl
+
+HKCU,%HK_INTERNET%\SearchUrl\news,, 0, "%MAIL%"
+HKCU,%HK_INTERNET%\SearchUrl\news," ", 0, "+"
+HKCU,%HK_INTERNET%\SearchUrl\news,"%", 0, "%25"
+HKCU,%HK_INTERNET%\SearchUrl\news,"&", 0, "%26"
+HKCU,%HK_INTERNET%\SearchUrl\news,"#", 0, "%23"
+HKCU,%HK_INTERNET%\SearchUrl\news,"?", 0, "%3F"
+HKCU,%HK_INTERNET%\SearchUrl\news,"=", 0, "%3D"
+HKCU,%HK_INTERNET%\SearchUrl\news,"+", 0, "%2B"
+
+HKCU,%HK_INTERNET%\SearchUrl\ms,, 0, "%MICROSOFT%"
+HKCU,%HK_INTERNET%\SearchUrl\ms," ", 0, "+"
+HKCU,%HK_INTERNET%\SearchUrl\ms,"%", 0, "%25"
+HKCU,%HK_INTERNET%\SearchUrl\ms,"&", 0, "%26"
+HKCU,%HK_INTERNET%\SearchUrl\ms,"#", 0, "%23"
+HKCU,%HK_INTERNET%\SearchUrl\ms,"?", 0, "%3F"
+HKCU,%HK_INTERNET%\SearchUrl\ms,"=", 0, "%3D"
+HKCU,%HK_INTERNET%\SearchUrl\ms,"+", 0, "%2B"
+
+HKCU,%HK_INTERNET%\SearchUrl\msdn,, 0, "%MSDN%"
+HKCU,%HK_INTERNET%\SearchUrl\msdn," ", 0, "+"
+HKCU,%HK_INTERNET%\SearchUrl\msdn,"%", 0, "%25"
+HKCU,%HK_INTERNET%\SearchUrl\msdn,"&", 0, "%26"
+HKCU,%HK_INTERNET%\SearchUrl\msdn,"#", 0, "%23"
+HKCU,%HK_INTERNET%\SearchUrl\msdn,"?", 0, "%3F"
+HKCU,%HK_INTERNET%\SearchUrl\msdn,"=", 0, "%3D"
+HKCU,%HK_INTERNET%\SearchUrl\msdn,"+", 0, "%2B"
+
+
+HKCU,%HK_INTERNET%\SearchUrl\src,, 0, "%SRC%"
+HKCU,%HK_INTERNET%\SearchUrl\src," ", 0, "+"
+HKCU,%HK_INTERNET%\SearchUrl\src,"%", 0, "%25"
+HKCU,%HK_INTERNET%\SearchUrl\src,"&", 0, "%26"
+HKCU,%HK_INTERNET%\SearchUrl\src,"#", 0, "%23"
+HKCU,%HK_INTERNET%\SearchUrl\src,"?", 0, "%3F"
+HKCU,%HK_INTERNET%\SearchUrl\src,"=", 0, "%3D"
+HKCU,%HK_INTERNET%\SearchUrl\src,"+", 0, "%2B"
+
+[Reg.Uninstall]
+HKCU,Software\Microsoft\Windows\CurrentVersion\Uninstall\%NAME%
+HKCU,Software\Microsoft\Windows\CurrentVersion\Uninstall\%NAME%, DisplayName, , "%NAME%"
+HKCU,Software\Microsoft\Windows\CurrentVersion\Uninstall\%NAME%, UninstallString\, , "Rundll32.exe setupapi.dll, InstallHinfSection DefaultUninstall 132 %53%\Application Data\Custom\Поисковые ссылки Обозревателя.inf"
+
+HKCU,%HK_INTERNET%\SearchUrl\news, 0x00006000
+HKCU,%HK_INTERNET%\SearchUrl\ms, 0x00006000
+HKCU,%HK_INTERNET%\SearchUrl\msdn, 0x00006000
+HKCU,%HK_INTERNET%\SearchUrl\src, 0x00006000
+
+[Inf.Copy]
+Поисковые ссылки Обозревателя.inf
+
+[DestinationDirs]
+Inf.Copy = 53, Application Data\Custom
+
+[SourceDiskNames]
+55=%DISKNAME%
+
+[SourceDiskFiles]
+Поисковые ссылки Обозревателя.inf=55
+
+[Strings]
+NAME         = "Поисковые ссылки Сергея"
+DISKNAME     = "Setup Files"
+HK_INTERNET  = "Software\Microsoft\Internet Explorer"
+
+; Поисковые Url
+
+MAIL         = "http://go.mail.ru/search?lfilter=y&q=%s"
+MICROSOFT    = "http://search.microsoft.com/results.aspx?mkt=ru-RU&form=MSHOME&setlang=ru-RU&q=%s&x=10&y=13"
+MSDN         = "http://search.msdn.microsoft.com/search/Default.aspx?query=%s&brand=msdn&locale=ru-ru&refinement=00&lang=ru-ru"
+SRC          = "http://ishodniki.ru/ilook/search.php?query=%s&lang=%EF%F0%EE%E3%F0%E0%EC%EC%E8%F0%EE%E2%E0%ED%E8%E5%3A&m=or&type=sources"

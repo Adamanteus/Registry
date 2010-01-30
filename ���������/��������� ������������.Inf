@@ -1,0 +1,46 @@
+[Version]
+Signature=$CHICAGO$
+
+[DefaultInstall]
+BitReg=Bits.Set
+AddReg=Reg.Settings
+AddReg=Reg.Uninstall
+
+[Reg.Settings]
+HKCU, %HK_DESKTOP%, ActiveWndTrkTimeout, 0x10001, 1000
+HKLM, %HK_SETUP%, RegisteredOwner,, %NAME%
+
+; 0x00000 - REG_SZ
+; 0x00001 - REG_BINARY
+; 0x10000 - REG_MULTI_SZ
+; 0x20000 - REG_EXPAND_SZ
+; 0x10001 - REG_DWORD
+; 0x20001 - REG_NONE
+
+[Bits.Set]
+HKCU, %HK_DESKTOP%, UserPreferencesMask, 0x00001, 0x01, 0
+HKCU, %HK_DESKTOP%, UserPreferencesMask, 0x00001, 0x40, 0
+
+; 0x00000 - сброс разр€дов в маске
+; 0x00001 - установка разр€дов в маске
+
+[Reg.Uninstall]
+HKCU,%HK_EXPLORER%\MenuOrder
+HKCU,%HK_EXPLORER%\RunMRU
+HKCU,%HK_EXPLORER%\RecentDocs
+HKCU,%HK_EXPLORER%\ComDlg32\LastVisitedMRU
+HKCU,%HK_SEARCH%\ACMru
+HKCU,%HK_INTERNET%\TypedURLs
+HKCU,%HK_INTERNET%\IntelliForms
+
+[SourceDiskNames]
+55=%DISKNAME%
+
+[Strings]
+NAME         = ""
+DISKNAME     = "Setup Files"
+HK_DESKTOP   = "Control Panel\Desktop"
+HK_EXPLORER  = "Software\Mocrosoft\Windows\CurrentVersion\Explorer"
+HK_SEARCH    = "Software\Mocrosoft\Search Assistant"
+HK_INTERNET  = "Software\Mocrosoft\Internet Explorer"
+HK_SETUP     = "SOFTWARE\Microsoft\Windows NT\CurrentVersion"

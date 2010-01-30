@@ -1,0 +1,101 @@
+CLASS USER	; пользовательская настройка
+			; MACHINE	; общекомпьютерная настройка
+			; USER.MACHINE	; компьютерная настраойка
+	CATEGORY "Диски"
+		POLICY "Доступ к дискам"
+			SUPPORTED	!!NameOS
+			EXPLAIN		"Доступ к дискам из Проводника"
+			KEYNAME		"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"
+			VALUENAME	"NoDrives"
+			VALUEON		NUMERIC	0
+			VALUEOFF	NUMERIC	65535
+		END POLICY	
+		POLICY "Автозапуск"
+			SUPPORTED	!!NameOS
+			EXPLAIN		"Автозапуск для дисков"
+			KEYNAME		"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"
+			VALUENAME	"NoDriveAutoRun"
+			VALUEON		NUMERIC	0
+			VALUEOFF	NUMERIC	65535
+		END POLICY	
+		POLICY "Автозапуск типов"
+			SUPPORTED	!!NameOS
+			EXPLAIN		"Автозапуск для типов дисков"
+			KEYNAME		"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"
+			VALUENAME	"NoDriveTypeAutoRun"
+			VALUEON		NUMERIC	0
+			VALUEOFF	NUMERIC	65535
+		END POLICY	
+	END CATEGORY
+	CATEGORY "Интернет"
+		POLICY "Запрос на отключение от сети"
+			SUPPORTED	!!NameOS
+			EXPLAIN		"Включает диалоговое окно запроса на отключение от сети для модема"
+			KEYNAME		"Software\Microsoft\Internet Explorer\IntelliForms"
+			VALUENAME	"AskUser"
+			VALUEON		NUMERIC	1
+			VALUEOFF	NUMERIC	0
+		END POLICY	
+	END CATEGORY
+	CATEGORY "Настройки интерфейса"
+		POLICY "Задержка отображения меню"
+			SUPPORTED	!!NameOS
+			EXPLAIN		"Задержка отображения меню после указания на него"
+			KEYNAME		"Control Panel\Desktop"
+			PART "Задержка в миллисекундах" NUMERIC
+				VALUENAME	"MenuShowDelay"
+				MIN 0
+				MAX 65534
+				DEFAULT	300
+				TXTCONVERT
+			END PART
+		END POLICY
+		POLICY "Минимальное смещение указателя мыши"
+			SUPPORTED	!!NameOS
+			EXPLAIN		"Количество пикселей минимального перемещения указателя"
+			KEYNAME		"Control Panel\Desktop"
+			PART "Перемещение по вертикали" NUMERIC
+				VALUENAME	"DragHeight"
+				MIN 0
+				MAX 16
+				TXTCONVERT
+			END PART
+			PART "Перемещение по горизонтали" NUMERIC
+				VALUENAME	"DragWidth"
+				MIN 0
+				MAX 16
+				TXTCONVERT
+			END PART
+		END POLICY
+		POLICY "Отображать всплывающие подсказки"
+			SUPPORTED	!!NameOS
+			EXPLAIN		"Включает и выключает отображание всплывающих подсказок"
+			KEYNAME		"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
+			VALUENAME	"EnableBalloonTips"
+			VALUEON		NUMERIC	1
+			VALUEOFF	NUMERIC	0
+		END POLICY
+		POLICY "Группировка окон на панели задач"
+			SUPPORTED	!!NameOS
+			EXPLAIN		"Управление группировкой окон на панели задач"
+			KEYNAME		"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
+			PART "Группировка приложений на панели задач" DROPDOWNLIST
+				NOSORT
+				VALUENAME	"TaskbarGroupSize"
+				ITEMLIST
+					NAME "Сначала последние используемые" VALUE 0
+					NAME "Сначала последние указаные мышью" VALUE 1
+					NAME "Приложения минимум с 2 окнами" VALUE 2
+					NAME "Приложения минимум с 3 окнами" VALUE 3
+					NAME "Приложения минимум с 4 окнами" VALUE 4
+					NAME "Приложения минимум с 5 окнами" VALUE 5
+					NAME "Приложения минимум с 6 окнами" VALUE 6
+					NAME "Приложения минимум с 7 окнами" VALUE 7
+					NAME "Приложения минимум с 8 окнами" VALUE 8
+				END ITEMLIST
+			END PART
+		END POLICY
+	END CATEGORY
+
+[strings]
+NameOS="Microsoft Windows Vista"

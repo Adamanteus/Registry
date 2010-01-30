@@ -1,0 +1,53 @@
+[Version]
+Signature=$CHICAGO$
+
+[DefaultInstall]
+AddReg=Reg.Settings
+AddReg=Reg.Uninstall
+CopyFiles=Inf.Copy
+
+[DefaultUninstall]
+DelReg=Reg.Settings
+DelReg=Reg.Uninstall
+DelFiles=Inf.Copy
+
+[Reg.Settings]
+;HKCU,%HK_EXPLORER\User Shell Folders, , 0x20000, %%
+
+HKCU,%HK_EXPLORER%\User Shell Folders, AppData, 0x20000, %APPDATA%
+HKCU,%HK_EXPLORER%\User Shell Folders, Local AppData, 0x20000, %APPDATA%
+HKCU,%HK_EXPLORER%\User Shell Folders, My Music, 0x20000, %MUSIC%
+HKCU,%HK_EXPLORER%\User Shell Folders, My Pictures, 0x20000, %GALLARY%
+HKCU,%HK_EXPLORER%\User Shell Folders, Personal, 0x20000, %DOCUMENTS%
+HKCU,%HK_EXPLORER%\User Shell Folders, Templates, 0x20000, %TEMPLATES%
+HKCU,%HK_EXPLORER%\User Shell Folders, {374DE290-123F-4565-9164-39C4925E467B}, 0x20000, %DOWNLOADS%
+; Что-бы работало, надо удалить ключ : HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Download Directory
+
+[Reg.Uninstall]
+HKCU,Software\Microsoft\Windows\CurrentVersion\Uninstall\%NAME%
+HKCU,Software\Microsoft\Windows\CurrentVersion\Uninstall\%NAME%, DisplayName, , "%NAME%"
+HKCU,Software\Microsoft\Windows\CurrentVersion\Uninstall\%NAME%, UninstallString\, , "Rundll32.exe setupapi.dll, InstallHinfSection DefaultUninstall 132 %53%\Application Data\Custom\Перенос стандартных каталогов.inf
+
+[Inf.Copy]
+Перенос стандартных каталогов.inf
+
+[DestinationDirs]
+Inf.Copy = 53, Application Data\Custom
+
+[SourceDiskNames]
+55=%DISKNAME%
+
+[SourceDiskFiles]
+Перенос стандартных каталогов.inf=55
+
+[Strings]
+NAME         = "User"
+HK_EXPLORER  = "Software\Microsoft\Windows\CurrentVersion\Explorer"
+APPDATA      = "%TMP%\AppData"
+LOCALAPPDATA = "%TMP%\LocalAppData"
+MUSIC        = ":\Фонотека"
+GALLARY      = ":\Галерея"
+DOCUMENTS    = ":\Документы"
+DOWNLOADS    = ":\Загрузка"
+TEMPLATES    = "\Шаблоны"
+DISKNAME     = "Setup Folders"

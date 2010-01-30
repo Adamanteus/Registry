@@ -1,0 +1,45 @@
+[Version]
+Signature=$CHICAGO$
+
+[DefaultInstall]
+AddReg=Reg.Settings
+AddReg=Reg.Uninstall
+CopyFiles=Inf.Copy
+
+[DefaultUninstall]
+DelReg=Reg.Settings
+DelReg=Reg.Uninstall
+DelFiles=Inf.Copy
+
+[Reg.Settings]
+HKCR,Directory\Shell\CmdHere
+HKCR,Directory\Shell\CmdHere,,,"%MENUITEM%"
+HKCR,Directory\Shell\CmdHere\command,,,"%11%\cmd.exe /k cd "%1""
+HKCR,Folder\Shell\CmdHere
+HKCR,Folder\Shell\CmdHere,,,"%MENUITEM%"
+HKCR,Folder\Shell\CmdHere\command,,,"%11%\cmd.exe /k cd "%1""
+HKCR,Drive\Shell\CmdHere
+HKCR,Drive\Shell\CmdHere,,,"%MENUITEM%"
+HKCR,Drive\Shell\CmdHere\command,,,"%11%\cmd.exe /k cd "%1""
+
+[Reg.Uninstall]
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\%NAME%
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\%NAME%, DisplayName, , "%NAME%"
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\%NAME%, UninstallString\, , "Rundll32.exe setupapi.dll, InstallHinfSection DefaultUninstall 132 %17%\Командная строка в контекстном меню.inf
+
+[Inf.Copy]
+Командная строка в контекстном меню.inf
+
+[DestinationDirs]
+Inf.Copy = 17
+
+[SourceDiskNames]
+55=%DISKNAME%
+
+[SourceDiskFiles]
+Командная строка в контекстном меню.inf=55
+
+[Strings]
+NAME         = "Командная строка в контекстном меню"
+MENUITEM     = "&Командная строка"
+DISKNAME     = "Setup command prompt"

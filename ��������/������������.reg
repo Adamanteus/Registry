@@ -1,0 +1,57 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings]
+"User Agent"="Mozilla/4.0 (compatible; MSIE 8.0; Win64)"
+"GlobalUserOffline"=dword:00000001
+"ReceiveTimeout"=dword:400000
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"DisableThumbnailCache"=dword:00000000
+"HideFileExt"=dword:00000001
+"Hidden"=dword:00000002
+"FolderContentsInfoTips"=dword:00000001
+"NoNetCrawling"=dword:00000000
+"PersistBrowsers"=dword:00000001
+"SeparateProcess"=dword:00000001
+"ServerAdminUI"=dword:00000000
+"ShowCompColor"=dword:00000001
+"WebViewBarricade"=dword:00000001
+"StartMenuChange"=dword:00000001
+"Start_EnableDragDrop"=dword:00000001
+"Start_ShowNetConn"=dword:00000001
+"Start_ShowNetPlaces"=dword:00000000
+"StartMenuAdminTools"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete]
+"Append Completion"="Yes"
+@="Yes"
+
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer]
+"Download Directory"=" "
+
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main]
+"Window title"="Обозреватель"
+"Friendly http errors"="no"
+"Search Page"="http://www.mail.ru"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\MAIN\UrlTemplate]
+"1"="www.%s.ru"
+"2"="www.%s.org"
+"3"="www.%s.net"
+"4"="www.%s.com"
+"5"="www.%s.edu"
+"6"="www.%s.biz"
+"5"="www.%s.eu"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\Ratings]
+"Key"=-
+
+[HKEY_CURRENT_USER\Software\Policies\Microsoft\Internet Explorer\Infodelivery\Restrictions]
+"NoBrowserSaveWebComplete"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Update]
+"UpdateMode"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows NT\CurrentVersion\Winlogon]
+"AutoRestartShell"=dword:00000001
+
